@@ -85,7 +85,7 @@ private:
             return rightRotate(node);
         }
 
-        //Case 4: Right Left (Double Rotation: Right then Left) ---
+        //Case 4: Right Left (Double Rotation: Right then Left)
         if (balance < -1 && val < node->right->data) {
             node->right = rightRotate(node->right);
             return leftRotate(node);

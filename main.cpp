@@ -25,3 +25,17 @@ vector<int> getPrimes(int n) {
     }
     return primeList;
 }
+
+int main() {
+
+    //Get n from user
+
+    //Generate primes from 1 to n
+
+    //Insert primes into both trees, time the insertions, and track memory usage for each tree
+
+    //Search for all primes in both trees, time the searches, and track memory usage for each tree
+
+    //Output results in a table format
+
+}
