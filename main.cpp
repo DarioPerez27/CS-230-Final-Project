@@ -48,6 +48,10 @@ int main() {
 
 
 
+    //Sort the primes for the binary tree, time the sorting, and track memory usage for each tree
+
+
+
     //Search for all primes in both trees, time the searches, and track memory usage for each tree
 
 
