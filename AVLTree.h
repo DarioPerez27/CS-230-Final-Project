@@ -4,8 +4,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+//This may be a little over documented but I plan on refering back to this file in the future
 
-//Each node stores its height so we don't have to recalculate it recursively every time we check balance.
+//Each node stores its height so we don't have to recalculate it recursively every time we check balance
 struct AVLNode {
     int data;
     AVLNode *left, *right;
@@ -25,7 +26,7 @@ private:
     //Positive means left-heavy, negative means right-heavy
     int getBalance(AVLNode* n) { return n ? getHeight(n->left) - getHeight(n->right) : 0; }
 
-    //Right Rotation: Used when the left subtree is too tall.
+    //Right Rotation: Used when the left subtree is too tall
     AVLNode* rightRotate(AVLNode* y) {
         AVLNode* x = y->left;
         AVLNode* T2 = x->right;
@@ -41,7 +42,7 @@ private:
         return x; // New root of this subtree
     }
 
-    //Left Rotation: Used when the right subtree is too tall.
+    //Left Rotation: Used when the right subtree is too tall
     AVLNode* leftRotate(AVLNode* x) {
         AVLNode* y = x->right;
         AVLNode* T2 = y->left;

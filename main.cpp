@@ -28,11 +28,11 @@ vector<int> getPrimes(int n) {
 
 /*BST Object with insert and search functions
 Needs to alternate left and right nodes in order to self balance*/
+BinaryTree binaryTree;
 
 /*AVL Tree Object with insert and search functions
 Needs to perform rotations to maintain balance after insertions*/
-
-
+AVLTree avlTree;
 
 int main() {
 

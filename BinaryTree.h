@@ -1,3 +1,6 @@
+#ifndef BINARYTREE_H
+#define BINARYTREE_H
+
 #include <iostream>
 using namespace std;
 
@@ -34,3 +37,25 @@ void inorder(Node* root) {
     cout << root->data << " ";
     inorder(root->right);
 }
+
+class BinaryTree {
+private:
+    Node* root;
+
+    void destroy(Node* node) {
+        if (node == NULL) return;
+        destroy(node->left);
+        destroy(node->right);
+        delete node;
+    }
+
+public:
+    BinaryTree() : root(NULL) {}
+    ~BinaryTree() { destroy(root); }
+
+    void insert(int value) { root = ::insert(root, value); }
+    void printInorder() const { ::inorder(root); }
+    Node* getRoot() const { return root; }
+};
+
+#endif // BINARYTREE_H
