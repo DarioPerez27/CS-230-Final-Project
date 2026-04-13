@@ -29,7 +29,7 @@ Node* insert(Node* root, int value) {
     return root;
 }
 
-// Helper: Search BST
+//Search BST
 bool searchNode(Node* root, int value) {
     if (root == NULL) return false;
     if (root->data == value) return true;
