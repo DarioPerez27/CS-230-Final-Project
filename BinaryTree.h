@@ -29,6 +29,14 @@ Node* insert(Node* root, int value) {
     return root;
 }
 
+// Helper: Search BST
+bool searchNode(Node* root, int value) {
+    if (root == NULL) return false;
+    if (root->data == value) return true;
+    if (value < root->data) return searchNode(root->left, value);
+    return searchNode(root->right, value);
+}
+
 // Inorder traversal (sorted)
 void inorder(Node* root) {
     if (root == NULL) return;
