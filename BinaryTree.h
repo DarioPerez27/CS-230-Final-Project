@@ -17,27 +17,30 @@ struct Node {
 };
 
 // Insert into BST
-Node* insert(Node* root, int value) {
+Node* insertNode(Node* root, int value) {
     if (root == NULL)
         return new Node(value);
 
     if (value < root->data)
-        root->left = insert(root->left, value);
+        root->left = insertNode(root->left, value);
     else
-        root->right = insert(root->right, value);
+        root->right = insertNode(root->right, value);
 
     return root;
 }
 
-//Search BST
+// Search function logic
 bool searchNode(Node* root, int value) {
     if (root == NULL) return false;
     if (root->data == value) return true;
-    if (value < root->data) return searchNode(root->left, value);
-    return searchNode(root->right, value);
+    
+    if (value < root->data)
+        return searchNode(root->left, value);
+    else
+        return searchNode(root->right, value);
 }
 
-// Inorder traversal (sorted)
+// Inorder traversal
 void inorder(Node* root) {
     if (root == NULL) return;
 
@@ -61,8 +64,11 @@ public:
     BinaryTree() : root(NULL) {}
     ~BinaryTree() { destroy(root); }
 
-    void insert(int value) { root = ::insert(root, value); }
-    void printInorder() const { ::inorder(root); }
+    void insert(int value) { root = insertNode(root, value); }
+    
+    bool find(int value) const { return searchNode(root, value); }
+    
+    void printInorder() const { inorder(root); }
     Node* getRoot() const { return root; }
 };
 

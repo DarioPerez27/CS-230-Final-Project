@@ -34,6 +34,8 @@ BinaryTree binaryTree;
 Needs to perform rotations to maintain balance after insertions*/
 AVLTree avlTree;
 
+
+
 int main() {
 
     //Get n from user
@@ -45,19 +47,38 @@ int main() {
     vector<int> primes = getPrimes(n);
 
     //Insert primes into both trees, time the insertions, and track memory usage for each tree
+    auto startBSTInsert = high_resolution_clock::now();
+    for (int p : primes) {
+        binaryTree.insert(p);
+    }
+    auto endBSTInsert = high_resolution_clock::now();
+    auto bstInsertDuration = duration_cast<microseconds>(endBSTInsert - startBSTInsert).count();
 
+    // Note: Track memory (Number of nodes * size of each node)
+    size_t bstMemory = primes.size() * sizeof(Node);
 
 
     //Sort the primes for the binary tree, time the sorting, and track memory usage for each tree
-
+    auto startBSTSort = high_resolution_clock::now();
+    // In a BST, the inorder traversal IS the sorting process.
+    // We call it here to time how long the traversal takes.
+    binaryTree.printInorder(); 
+    cout << endl;
+    auto endBSTSort = high_resolution_clock::now();
+    auto bstSortDuration = duration_cast<microseconds>(endBSTSort - startBSTSort).count();
 
 
     //Search for all primes in both trees, time the searches, and track memory usage for each tree
+    auto startBSTSearch = high_resolution_clock::now();
+    for (int p : primes) {
+        binaryTree.find(p); // Uses the find method added to BinaryTree.h
+    }
+    auto endBSTSearch = high_resolution_clock::now();
+    auto bstSearchDuration = duration_cast<microseconds>(endBSTSearch - startBSTSearch).count();
 
 
+    //Output results in a table format.
+  
 
-    //Output results in a table format
-
-
-
+    return 0;
 }
